@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    container_name: ec01-alunos
+    ports:
+      - "8080:80"
+    # Volumes: a pasta do projeto é montada dentro do container, então
+    # qualquer alteração nos arquivos aparece ao atualizar a página (F5),
+    # sem precisar reconstruir a imagem durante o desenvolvimento.
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./exercicio1:/usr/share/nginx/html/exercicio1:ro
+      - ./exercicio2:/usr/share/nginx/html/exercicio2:ro
+      - ./exercicio3:/usr/share/nginx/html/exercicio3:ro
+      - ./exercicio4:/usr/share/nginx/html/exercicio4:ro
